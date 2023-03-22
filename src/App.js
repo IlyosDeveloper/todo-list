@@ -2,9 +2,18 @@ import { useState } from "react";
 import Form from "./components/Form";
 import TodoList from "./components/TodoList";
 import "./App.css";
+import Modal from "./components/Modal";
 
 function App() {
   const [data, setData] = useState([]);
+  const [show, setShow] = useState(false);
+
+  const modalBtn = ()=>{
+    setShow(true)
+  }
+  const modalOpenBtn = ()=>{
+    setShow(false)
+  }
 
   const deleteData = (id) => {
     const newData = data.filter((item) => {
@@ -12,6 +21,7 @@ function App() {
     });
     setData(newData);
   };
+
 
   const updateData = (id) => {
     const newData = data.map((item) => {
@@ -28,7 +38,8 @@ function App() {
       <div className='container'>
         <h1 className='title'>Daily To Do List</h1>
         <Form setData={setData} />
-        <TodoList data={data} updateData={updateData} deleteData={deleteData} />
+        <TodoList data={data} updateData={updateData} deleteData={deleteData} modalBtn={modalBtn}/>
+        {show && <Modal modalBtn={modalBtn} modalOpenBtn={modalOpenBtn}/>}
         <hr />
         <footer>
           <p>Items: {data.length}</p>

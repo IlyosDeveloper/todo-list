@@ -1,44 +1,44 @@
 .form {
-    width: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    background: #FFFFFF;
-    border: 1px solid #EEEEEE;
-    border-radius: 8px;
-    padding: 7px 7px 7px 20px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: #ffffff;
+  border: 1px solid #eeeeee;
+  border-radius: 8px;
+  padding: 7px 7px 7px 20px;
 }
 
 .input {
-    width: 100%;
-    border: none;
-    outline: none;
-    font-family: 'Rubik';
-    font-style: normal;
-    font-weight: 700;
-    font-size: 16px;
-    line-height: 110%;
-    letter-spacing: 0.05em;
-    color: #11175E;
+  width: 100%;
+  border: none;
+  outline: none;
+  font-family: "Rubik";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 110%;
+  letter-spacing: 0.05em;
+  color: #11175e;
 }
 
 .input::placeholder {
-    color: #B1BACB;
-    font-family: sans-serif;
+  color: #b1bacb;
+  font-family: sans-serif;
 }
 
 .btn {
-    padding: 12px 24px;
-    background: #2D70FD;
-    border: 1px solid #2D70FD;
-    border-radius: 4px;
-    font-family: 'Rubik';
-    font-style: normal;
-    font-weight: 500;
-    font-size: 18px;
-    line-height: 110%;
-    text-align: center;
-    letter-spacing: 0.01em;
-    color: #FFFFFF;
-    cursor: pointer;
+  padding: 12px 24px;
+  background: #2d70fd;
+  border: 1px solid #2d70fd;
+  border-radius: 4px;
+  font-family: "Rubik";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 110%;
+  text-align: center;
+  letter-spacing: 0.01em;
+  color: #ffffff;
+  cursor: pointer;
 }
