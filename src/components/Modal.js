@@ -1,13 +1,26 @@
-import React from "react";
+import { useState } from "react";
 import "./Form.css";
 import "./Modal.css";
 
-function Modal({ modalOpenBtn }) {
+function Modal({ modalCloseBtn, editItem, itemId }) {
+  
+  const [query, setQuery] = useState("");
+
+  const renameTodo = (e) => {
+    e.preventDefault();
+    console.log(query);
+    modalCloseBtn()
+    editItem(itemId, query);
+  };
+
   return (
     <div className='modal-form'>
       <h1 className='modal-title'>Edit information</h1>
-      <form className='form'>
+      <form onSubmit={renameTodo} className='form'>
         <input
+          onChange={(e) => {
+            setQuery(e.target.value);
+          }}
           className='input'
           id='todo'
           type='text'
@@ -19,9 +32,7 @@ function Modal({ modalOpenBtn }) {
           Add
         </button>
       </form>
-      <button
-        onClick= {modalOpenBtn}
-        className='btn'>
+      <button onClick={modalCloseBtn} className='btn'>
         Close
       </button>
     </div>

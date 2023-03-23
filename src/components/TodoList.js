@@ -1,13 +1,17 @@
-import React from "react";
+import { useState } from "react";
+import Modal from "./Modal";
 import "./TodoList.css";
 
 function TodoList({ data, updateData, deleteData, modalBtn }) {
+  const [itemId, setEditId] = useState("");
+  console.log(itemId);
+  const [show] = useState(false);
   return (
     <ul className='list'>
       {data &&
         data.map((todo) => {
           return (
-            <li className='list-item' key={todo.id}>
+            <li key={todo.id} className='list-item'>
               <div
                 className='item-text'
                 onClick={() => {
@@ -24,9 +28,9 @@ function TodoList({ data, updateData, deleteData, modalBtn }) {
                       <path
                         d='M1.66666 5.66667L4.99999 9L12.3333 1.66667'
                         stroke='white'
-                        stroke-width='2'
-                        stroke-linecap='round'
-                        stroke-linejoin='round'
+                        strokeWidth='2'
+                        strokeLinecap='round'
+                        strokeLinejoin='round'
                       />
                     </svg>
                   </div>
@@ -35,7 +39,12 @@ function TodoList({ data, updateData, deleteData, modalBtn }) {
                 )}
                 <p>{todo.text}</p>
               </div>
-              <button onClick={modalBtn} className='edit-btn'>
+              <button
+                onClick={() => {
+                  setEditId(todo.id);
+                  modalBtn();
+                }}
+                className='edit-btn'>
                 <svg
                   xmlns='http://www.w3.org/2000/svg'
                   width='44'
@@ -44,8 +53,8 @@ function TodoList({ data, updateData, deleteData, modalBtn }) {
                   viewBox='0 0 24 24'>
                   <path
                     stroke='#464455'
-                    stroke-linecap='round'
-                    stroke-linejoin='round'
+                    strokeLinecap='round'
+                    strokeLinejoin='round'
                     d='M12 5H9c-1.886 0-2.828 0-3.414.586C5 6.172 5 7.114 5 9v6c0 1.886 0 2.828.586 3.414C6.172 19 7.114 19 9 19h6c1.886 0 2.828 0 3.414-.586C19 17.828 19 16.886 19 15v-3m-9.681.691 5.93-5.863a1.276 1.276 0 0 1 1.815 1.792l-5.831 6.05L9 15l.319-2.309Z'
                   />
                 </svg>
@@ -79,6 +88,7 @@ function TodoList({ data, updateData, deleteData, modalBtn }) {
             </li>
           );
         })}
+      {show && <Modal itemId={itemId} />}
     </ul>
   );
 }
