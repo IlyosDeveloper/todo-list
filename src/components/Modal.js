@@ -2,15 +2,14 @@ import { useState } from "react";
 import "./Form.css";
 import "./Modal.css";
 
-function Modal({ modalCloseBtn, editItem, itemId }) {
-  
+function Modal({ modalCloseBtn, itemId, editItem }) {
   const [query, setQuery] = useState("");
 
   const renameTodo = (e) => {
     e.preventDefault();
     console.log(query);
-    modalCloseBtn()
-    editItem(itemId, query);
+    modalCloseBtn();
+    editItem(itemId,query);
   };
 
   return (

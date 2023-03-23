@@ -1,8 +1,8 @@
 import { useState } from "react";
 import Form from "./components/Form";
 import TodoList from "./components/TodoList";
-import "./App.css";
 import Modal from "./components/Modal";
+import "./App.css";
 
 function App() {
   const [data, setData] = useState([]);
@@ -11,6 +11,7 @@ function App() {
   const modalBtn = () => {
     setShow(true);
   };
+
   const modalCloseBtn = () => {
     setShow(false);
   };
@@ -32,10 +33,10 @@ function App() {
     setData(newData);
   };
 
-  const editItem = (id, editText) => {
+  const editItem = (id, text) => {
     const newData = data.map((item) => {
       if (item.id === id) {
-        return { ...item, text: editText };
+        return { ...item, text };
       }
       return item;
     });
@@ -55,7 +56,6 @@ function App() {
         />
         {show && (
           <Modal
-            modalBtn={modalBtn}
             modalCloseBtn={modalCloseBtn}
             editItem={editItem}
           />

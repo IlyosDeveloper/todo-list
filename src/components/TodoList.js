@@ -3,9 +3,10 @@ import Modal from "./Modal";
 import "./TodoList.css";
 
 function TodoList({ data, updateData, deleteData, modalBtn }) {
-  const [itemId, setEditId] = useState("");
-  console.log(itemId);
+  const [itemId, setItemId] = useState("");
   const [show] = useState(false);
+  console.log(itemId);
+
   return (
     <ul className='list'>
       {data &&
@@ -41,7 +42,7 @@ function TodoList({ data, updateData, deleteData, modalBtn }) {
               </div>
               <button
                 onClick={() => {
-                  setEditId(todo.id);
+                  setItemId(todo.id);
                   modalBtn();
                 }}
                 className='edit-btn'>
@@ -88,7 +89,7 @@ function TodoList({ data, updateData, deleteData, modalBtn }) {
             </li>
           );
         })}
-      {show && <Modal itemId={itemId} />}
+      {show && <Modal itemId={itemId}/>}
     </ul>
   );
 }
