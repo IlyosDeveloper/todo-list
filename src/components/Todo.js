@@ -3,6 +3,11 @@ import { useState } from "react";
 function Todo({ deleteData, updateData, todo, modalBtn, setItemId }) {
   const [style, setStyled] = useState(false);
 
+  // const now = new Date();
+  // const date = now.getDate() < 10 ? "0" + now.getDate() : now.getDate();
+  // const month = now.getMonth() < 10 ? "0" + (now.getMonth() + 1) : getMonth();
+  // const year = now.getFullYear();
+
   return (
     <li key={todo.id} className={`list-item ${style ? "error" : ""}`}>
       <div
@@ -30,8 +35,9 @@ function Todo({ deleteData, updateData, todo, modalBtn, setItemId }) {
         ) : (
           <div className='circle'></div>
         )}
-        <p>{style ? "Selected todo can't be editted" : todo.text}</p>
+        <p>{style ? "Cannot be changed at the selected time" : todo.text}</p>
       </div>
+      
       <button
         onClick={() => {
           if (!todo.selected) {
