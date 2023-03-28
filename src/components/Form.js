@@ -1,34 +1,32 @@
-import { useState } from "react";
 import "./Form.css";
-import React from "react";
+import {useState} from "react";
 
-function Form({ setData }) {
-  const [todo, setTodo] = useState("");
-
+function Form({ setData, todo, setTodo }) {
+  const [inputVal, setInputVal] = useState('')
   const submitBtn = (e) => {
+    e.preventDefault();
     let item = {
       id: Date.now(),
-      text: todo,
+      text: inputVal,
       selected: false,
     };
-    setData((prev)=>{
-        return [...prev, item];
+    setInputVal("");
+    setData((prev) => {
+      return [...prev, item];
     });
-    e.preventDefault();
-    setTodo("");
   };
   return (
     <div>
       <form onSubmit={submitBtn} className='form'>
         <input
-          onChange={(e) => setTodo(e.target.value)}
+          onChange={(e) => setInputVal(e.target.value)}
           className='input'
           id='todo'
           type='text'
           placeholder='Add new list item'
           required
           autoComplete='off'
-          value={todo}
+          value={inputVal}
         />
         <button type='submit' className='btn'>
           Add

@@ -2,20 +2,26 @@ import { useState } from "react";
 import "./Form.css";
 import "./Modal.css";
 
-function Modal({ modalCloseBtn, itemId, editItem }) {
-  const [query, setQuery] = useState("");
+function Modal({ modalCloseBtn, item, data, setData, itemId }) {
+  const [query, setQuery] = useState(item[0].text);
 
-  const renameTodo = (e) => {
+  const handleSubmit = (e) => {
     e.preventDefault();
-    console.log(query);
+    setData((prev) => {
+      return prev.map((item) => {
+        if (item.id === itemId) {
+          return { ...item, text: query };
+        }
+        return item;
+      });
+    });
     modalCloseBtn();
-    editItem(itemId,query);
   };
 
   return (
     <div className='modal-form'>
       <h1 className='modal-title'>Edit information</h1>
-      <form onSubmit={renameTodo} className='form'>
+      <form className='form' onSubmit={handleSubmit}>
         <input
           onChange={(e) => {
             setQuery(e.target.value);
@@ -26,6 +32,8 @@ function Modal({ modalCloseBtn, itemId, editItem }) {
           placeholder='Add new list item'
           required
           autoComplete='off'
+          value={query}
+          autoFocus
         />
         <button type='submit' className='btn'>
           Add

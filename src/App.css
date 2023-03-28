@@ -10,6 +10,7 @@
   padding-bottom: 41px;
   padding-left: 20px;
   padding-right: 20px;
+  height: 670px;
 }
 
 .container {
@@ -20,21 +21,22 @@
 }
 
 .title {
-  font-family: 'Rubik';
+  font-family: "Rubik";
   text-align: center;
   font-style: normal;
   font-weight: 600;
   font-size: 48px;
   line-height: 57px;
   letter-spacing: 0.01em;
-  color: #11175E;
+  color: #11175e;
   margin-bottom: 32px;
 }
 
 hr {
-  border: 1px solid #EEE;
+  border: 1px solid #eee;
   background: #eee;
-  margin-bottom: 24px;
+  margin-top: 10px;
+  margin-bottom: 18px;
 }
 
 footer {
@@ -42,14 +44,14 @@ footer {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  font-family: 'Rubik';
+  font-family: "Rubik";
   font-style: normal;
   font-weight: 400;
   font-size: 16px;
   line-height: 110%;
   letter-spacing: 0.01em;
-  font-feature-settings: 'liga' off;
-  color: #B1BACB;
+  font-feature-settings: "liga" off;
+  color: #b1bacb;
 }
 
 footer button {
