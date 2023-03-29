@@ -4,7 +4,7 @@ import "./Modal.css";
 
 function Modal({ modalCloseBtn, item, setData, itemId }) {
   const [query, setQuery] = useState(item[0].text);
-  const dateState = new Date()
+  // const dateState = new Date()
 
   const handleSubmit = (e) => {
     e.preventDefault();

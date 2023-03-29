@@ -3,11 +3,6 @@ import { useState } from "react";
 function Todo({ deleteData, updateData, todo, modalBtn, setItemId }) {
   const [style, setStyled] = useState(false);
 
-  const newDate = new Date();
-  const data = newDate.getDate();
-  const month = newDate.getMonth();
-  const year = newDate.getFullYear();
-
   return (
     <li key={todo.id} className={`list-item ${style ? "error" : ""}`}>
       <div
