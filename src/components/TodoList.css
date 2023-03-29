@@ -51,14 +51,17 @@
   -o-user-select: none;
   user-select: none;
   word-break: break-all;
+  font-size: 20px;
+  color: #0e368d;
+  font-weight: 400;
 }
 
 .list-item:hover .circle {
   border: 1px solid rgba(26, 96, 247, 0.15);
 }
 
-.list-item:hover .item-text {
-  color: #2d70fd;
+.list-item:hover .item-text p {
+  color: #7b97d2;
 }
 
 .delete-btn {

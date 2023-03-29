@@ -3,7 +3,7 @@ import Modal from "./Modal";
 import Todo from "./Todo";
 import "./TodoList.css";
 
-function TodoList({ data, updateData, setData, deleteData, editItem }) {
+function TodoList({ data, updateData, setData, deleteData}) {
   const [show, setShow] = useState(false);
   const [itemId, setItemId] = useState(0);
 
@@ -25,7 +25,7 @@ function TodoList({ data, updateData, setData, deleteData, editItem }) {
       {show && (
         <Modal
           modalCloseBtn={modalCloseBtn}
-          item={data.filter((item) => item.id == itemId)}
+          item={data.filter((item) => item.id === itemId)}
           setData={setData}
           itemId={itemId}
         />

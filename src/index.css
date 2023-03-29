@@ -25,5 +25,5 @@ html {
 body {
   height: 100%;
   font-family: 'Rubik', sans-serif;
-  background-color: aqua;
+  background: linear-gradient(45deg, rgb(34, 195, 34) 0%, rgb(199, 9, 21) 100%);
 }

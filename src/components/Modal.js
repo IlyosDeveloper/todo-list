@@ -2,15 +2,16 @@ import { useState } from "react";
 import "./Form.css";
 import "./Modal.css";
 
-function Modal({ modalCloseBtn, item, data, setData, itemId }) {
+function Modal({ modalCloseBtn, item, setData, itemId }) {
   const [query, setQuery] = useState(item[0].text);
+  const dateState = new Date()
 
   const handleSubmit = (e) => {
     e.preventDefault();
     setData((prev) => {
       return prev.map((item) => {
         if (item.id === itemId) {
-          return { ...item, text: query };
+          return { ...item, text: query,  };
         }
         return item;
       });

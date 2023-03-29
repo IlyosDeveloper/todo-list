@@ -3,10 +3,10 @@ import { useState } from "react";
 function Todo({ deleteData, updateData, todo, modalBtn, setItemId }) {
   const [style, setStyled] = useState(false);
 
-  // const now = new Date();
-  // const date = now.getDate() < 10 ? "0" + now.getDate() : now.getDate();
-  // const month = now.getMonth() < 10 ? "0" + (now.getMonth() + 1) : getMonth();
-  // const year = now.getFullYear();
+  const newDate = new Date();
+  const data = newDate.getDate();
+  const month = newDate.getMonth();
+  const year = newDate.getFullYear();
 
   return (
     <li key={todo.id} className={`list-item ${style ? "error" : ""}`}>
@@ -37,7 +37,11 @@ function Todo({ deleteData, updateData, todo, modalBtn, setItemId }) {
         )}
         <p>{style ? "Cannot be changed at the selected time" : todo.text}</p>
       </div>
-      
+
+      <p>
+       {todo.time}
+      </p>
+
       <button
         onClick={() => {
           if (!todo.selected) {
